@@ -107,7 +107,7 @@ for ii in *.jpg *.png; do
                 convert -resize $xxhdpi% $ii drawable-xxhdpi/$x 
             fi
         else
-            x=${ii/@2x./.}
+            x=${ii/@3x./.}
             if [[ ${x} =~ -568h ]]; then
                 x=${x/-568h./.}
             fi
@@ -119,10 +119,10 @@ for ii in *.jpg *.png; do
 
             x=`echo $x | tr "[:upper:]" "[:lower:]"`
             echo $ii
-            convert -resize 37.5% $ii drawable-ldpi/$x
-            convert -resize 50% $ii drawable-mdpi/$x
-            convert -resize 75% $ii drawable-hdpi/$x
-            convert -resize 112.5% $ii drawable-xhdpi/$x 
+            convert -resize 33.3% $ii drawable-mdpi/$x
+            convert -resize 50% $ii drawable-hdpi/$x
+            convert -resize 66.6% $ii drawable-xhdpi/$x 
+            convert -resize 100% $ii drawable-xxhdpi/$x 
         fi
     fi
 done
